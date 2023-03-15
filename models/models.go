@@ -14,7 +14,7 @@ type User struct {
 	Bio string 				`json:"bio" gorm:"text;not null;default:null"`
 	Location string 		`json:"location" gorm:"text;not null;default:null"`
 	AvatarURL string 		`json:"avatarUrl" gorm:"text;not null;default:null"`
-	CreatedAt time.Time 	`json:"createdAt" gorm:"text;not null;default:null"`
-	UpdatedAt time.Time 	`json:"updatedAt" gorm:"text;not null;default:null"`
-	Role bool 				`json:"role" gorm:"bool;not null;default:null"`
+	CreatedAt time.Time 	
+	UpdatedAt time.Time 	
+	Role bool 				
 }

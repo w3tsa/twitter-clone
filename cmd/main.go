@@ -9,9 +9,7 @@ func main() {
     database.ConnectDb()
     app := fiber.New()
 
-    app.Get("/", func(c *fiber.Ctx) error {
-        return c.SendString("This is a!")
-    })
+    setupRoutes(app)
 
     app.Listen(":8080")
 }
