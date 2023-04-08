@@ -17,7 +17,7 @@ func GetUser(c *fiber.Ctx) error {
 }
 
 func CreateUser(c *fiber.Ctx) error { 
-	user := new(models.User) 
+	user := new(models.User)
 
 	if err := c.BodyParser(user); err!= nil { 
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
@@ -27,5 +27,14 @@ func CreateUser(c *fiber.Ctx) error {
 
 	database.DB.Db.Create(&user)
 
-	return c.Status(200).JSON(user)
+
+	return c.Status(201).JSON(user)
+}
+
+func DeleteUser(c *fiber.Ctx) error {
+	id := c.Params("id")
+	user := new(models.User)	
+	database.DB.Db.First(&user, id).Delete(&user)
+	return c.Status(204).JSON(user) 
+ 	
 }
