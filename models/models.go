@@ -4,7 +4,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Posts struct {
+type Post struct {
     gorm.Model
     Content     string      `json:"content"`
     UserID  uint
@@ -15,7 +15,7 @@ type User struct {
     ID          uint
     Username    string  `json:"username" gorm:"uniqueIndex: not null"`
     Password    string  `json:"password" gorm:"not null"`
-    Posts []Posts
+    Posts []Post
 }
 
 // type User struct {

@@ -35,6 +35,8 @@ func ConnectDb() {
 	db.Logger = logger.Default.LogMode(logger.Info)
 
 	log.Println("running migrations")
-	db.AutoMigrate(&models.User{}, &models.Posts{})
+	// db.Exec("DROP TABLE posts")
+	// db.Exec("DROP TABLE users")
+	db.AutoMigrate(&models.User{}, &models.Post{})
 	DB = Dbinstance{Db: db}
 }
